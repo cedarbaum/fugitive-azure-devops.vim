@@ -15,7 +15,7 @@ Make sure that you've installed the [fugitive.vim](https://github.com/tpope/vim-
 
 ## Acknowledgments
 
-This plugin is heavily based on the [rhubarb.vim](https://github.com/tpope/vim-rhubarb) and [fugitive-gitlab.vim](https://github.com/shumphrey/fugitive-gitlab.vim) plugins, which add `Gbrowse` functionality for [GitHub](https://github.com/) and [GitLab](https://about.gitlab.com/), respectively. Both are distributed under the same [License](#license) as below.
+This plugin is heavily based on the [rhubarb.vim](https://github.com/tpope/vim-rhubarb) and [fugitive-gitlab.vim](https://github.com/shumphrey/fugitive-gitlab.vim) plugins, which add `Gbrowse` functionality for [GitHub](https://github.com/) and [GitLab](https://about.gitlab.com/), respectively. Both are distributed under Vim's license.
 
 ## License
 Copyright (c) Sam Cedarbaum. Distributed under the same terms as Vim itself. See `:help license`.
