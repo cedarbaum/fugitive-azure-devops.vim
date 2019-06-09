@@ -1,0 +1,23 @@
+*fugitive-azure-devops.txt*  Azure DevOps integration for fugitive.vim
+
+Author:  Sam Cedarbaum
+License: Same as Vim's license (see: |license|)
+
+INTRODUCTION                                    *fugitive-azure-devops*
+
+This plugin enables the |fugitive-:Gbrowse| command to work with Azure DevOps.
+
+CONFIGURATION                                   *fugitive-azure-devops-config*
+
+For most cases, no configuration is needed. However, if you're using a custom ssh user, you should
+set the g:fugitive_azure_devops_ssh_user variable:
+
+    let g:fugitive_azure_devops_ssh_user = 'user'
+
+COMMANDS                                        *fugitive-azure-devops-commands*
+
+This plugin does not provide any commands.
+
+ABOUT                                           *fugitive-azure-devops-about*
+
+The source code can be found here: https://github.com/cedarbaum/fugitive-azure-devops.vim
