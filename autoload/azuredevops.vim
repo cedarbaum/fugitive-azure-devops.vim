@@ -71,8 +71,8 @@ function! azuredevops#homepage_for_remote(remote) abort
       \       strpart(url, index_of_last_slash)
   endif
 
-  " Remove port or version specifier (e.g., v3)
-  return substitute(url, ':v\=\d\{1,5}\/', '/', '')
+  " Remove port or version specifier (e.g., v3), always use HTTPS.
+  return 'https://' . substitute(url, ':v\=\d\{1,5}\/', '/', '')
 endfunction
 
 function! s:add_line_range_query_params(url, line1, line2) abort
