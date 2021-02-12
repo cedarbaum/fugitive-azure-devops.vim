@@ -59,6 +59,10 @@ function! azuredevops#homepage_for_remote(remote) abort
     \                          'ssh://' . g:fugitive_azure_devops_ssh_user . '@\|\)' .
     \                          '\%(.\{-\}@\)\=\zs\(' . domain_pattern . '\)[/:].\{-\}\ze\%(\.git\)\=$')
 
+  if url == ''
+    return ''
+  endif
+
   " SSH urls don't have the required '_git' path segment. Add it here.
   if stridx(url, '/_git/') == -1
     let index_of_last_slash = strridx(url, '/')
