@@ -1,0 +1,26 @@
+Before:
+    Save g:fugitive_gitlab_domains
+    Save g:fugitive_browse_handlers
+
+    unlet! g:fugitive_browse_handlers
+    unlet! g:fugitive_gitlab_domains
+
+    unlet! g:loaded_fugitive_gitlab
+    unlet! g:autoloaded_fugitive_gitlab
+    runtime plugin/gitlab.vim
+    runtime autoload/gitlab.vim
+
+After:
+    Restore g:fugitive_gitlab_domains
+    Restore g:fugitive_browse_handlers
+
+Execute (Gbrowse - blob):
+    let opts = {
+      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%20project/Test%20project',
+      \'commit': 'master',
+      \'type': 'blob',
+      \'path': 'hello_world.txt'
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+
+    AssertEqual 'https://dev.azure.com/scedarbaum/_git/Test%20project?path=%2Fhello_world.txt', url
