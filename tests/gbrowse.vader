@@ -11,7 +11,6 @@ Before:
     runtime autoload/azuredevops.vim
 
 After:
-    Restore g:fugitive_gitlab_domains
     Restore g:fugitive_browse_handlers
 
 Execute (Gbrowse - blob):
@@ -37,3 +36,13 @@ Execute (Gbrowse - blob with range):
     let url = g:fugitive_browse_handlers[0](opts)
 
     AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GCeb2b86ae6c6d44a27fff2697067b4e7d081183ee&line=7&lineEnd=11&lineStartColumn=1&lineEndColumn=9999&lineStyle=plain', url
+
+Execute (Gbrowse - directory tree):
+    let opts = {
+      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%20project/Test%20project',
+      \'commit': 'master',
+      \'type': 'tree',
+      \'path': 'path1/path2'
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=path1%2Fpath2&version=GBmaster', url
