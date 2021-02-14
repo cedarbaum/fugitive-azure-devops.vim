@@ -77,7 +77,9 @@ endfunction
 
 function! s:add_line_range_query_params(url, line1, line2) abort
   let l1_url = s:add_query_param(a:url, 'line', a:line1)
-  return s:add_query_param(l1_url, 'lineEnd', a:line2)
+  let l2_url = s:add_query_param(l1_url, 'lineEnd', a:line2)
+  " Start and end columns are always required.
+  return l2_url . '&lineStartColumn=1&lineEndColumn=9999&lineStyle=plain'
 endfunction
 
 function! s:add_path_query_param(url, path) abort
