@@ -1,14 +1,14 @@
+# Below tests are based on https://github.com/shumphrey/fugitive-gitlab.vim/blob/master/test/gbrowse.vader
+
 Before:
-    Save g:fugitive_gitlab_domains
     Save g:fugitive_browse_handlers
 
     unlet! g:fugitive_browse_handlers
-    unlet! g:fugitive_gitlab_domains
 
-    unlet! g:loaded_fugitive_gitlab
-    unlet! g:autoloaded_fugitive_gitlab
-    runtime plugin/gitlab.vim
-    runtime autoload/gitlab.vim
+    unlet! g:loaded_fugitive_azure_devops
+    unlet! g:autoloaded_fugitive_azure_devops
+    runtime plugin/azuredevops.vim
+    runtime autoload/azuredevops.vim
 
 After:
     Restore g:fugitive_gitlab_domains
