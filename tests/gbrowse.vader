@@ -23,4 +23,4 @@ Execute (Gbrowse - blob):
     \}
     let url = g:fugitive_browse_handlers[0](opts)
 
-    AssertEqual 'https://dev.azure.com/scedarbaum/_git/Test%20project?path=%2Fhello_world.txt', url
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GBmaster', url
