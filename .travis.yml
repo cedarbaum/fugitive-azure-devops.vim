@@ -14,6 +14,5 @@ install: |
     cd -
     PATH=/tmp/vim/bin:$PATH
 script: |
-    export LD_LIBRARY_PATH=~/.rvm/rubies/ruby-2.2.3/lib
+export LD_LIBRARY_PATH=~/.rvm/rubies/ruby-2.2.3/lib
     ./tests/run_tests.sh
-# vim: set ts=4 sw=4 et :
