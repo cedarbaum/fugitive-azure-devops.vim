@@ -89,7 +89,7 @@ Execute (Gbrowse - Short form ssh remote with non-standard port):
 
     AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GBmaster', url
 
-Execute (Gbrowse - Does not match non-gitlab remote):
+Execute (Gbrowse - Does not match remotes from other Git portals):
     let opts = {
       \'commit': 'master',
       \'type': 'blob',
