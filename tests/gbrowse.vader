@@ -46,3 +46,71 @@ Execute (Gbrowse - directory tree):
     \}
     let url = g:fugitive_browse_handlers[0](opts)
     AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=path1%2Fpath2&version=GBmaster', url
+
+Execute (Gbrowse - commit type):
+    let opts = {
+      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%20project/Test%20project',
+      \'commit': 'eb2b86ae6c6d44a27fff2697067b4e7d081183ee',
+      \'type': 'commit',
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=&version=GCeb2b86ae6c6d44a27fff2697067b4e7d081183ee', url
+
+Execute (Gbrowse - https remote):
+    let opts = {
+      \'remote': 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project',
+      \'commit': 'master',
+      \'type': 'blob',
+      \'path': 'hello_world.txt'
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GBmaster', url
+
+Execute (Gbrowse - https remote with @):
+    let opts = {
+      \'remote': 'https://scedarbaum@dev.azure.com/scedarbaum/Test%20project/_git/Test%20project',
+      \'commit': 'master',
+      \'type': 'blob',
+      \'path': 'hello_world.txt'
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GBmaster', url
+
+Execute (Gbrowse - Short form ssh remote with non-standard port):
+    let opts = {
+      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%20project/Test%20project',
+      \'commit': 'master',
+      \'type': 'blob',
+      \'path': 'hello_world.txt'
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GBmaster', url
+
+Execute (Gbrowse - Does not match non-gitlab remote):
+    let opts = {
+      \'commit': 'master',
+      \'type': 'blob',
+      \'path': 'hello_world.txt'
+    \}
+
+    let url = g:fugitive_browse_handlers[0](opts)
+    AssertEqual '', url
+
+    let remotes = [
+        \ 'git@github.com/cedarbaum/fugitive-azure-devops.vim.git',
+        \ 'git@github.com:12345/cedarbaum/fugitive-azure-devops.vim.git',
+        \ 'user@github.com:12345/cedarbaum/fugitive-azure-devops.vim.git',
+        \ 'https://user:pass@github.com:443/cedarbaum/fugitive-azure-devops.vim.git',
+        \ 'https://user@github.com/cedarbaum/fugitive-azure-devops.vim.git',
+        \ 'https://github.com/cedarbaum/fugitive-azure-devops.vim.git',
+    \ ]
+
+    for remote in remotes
+        let opts.remote = remote
+
+        let url = g:fugitive_browse_handlers[0](opts)
+        AssertEqual '', url
+    endfor
