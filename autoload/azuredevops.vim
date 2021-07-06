@@ -2,6 +2,7 @@ if exists('g:autoloaded_fugitive_azure_devops')
   finish
 endif
 let g:autoloaded_fugitive_azure_devops = 1
+let s:fugitive_azure_devops_baseurl = get(g:, 'fugitive_azure_devops_baseurl', 'dev\.azure\.com')
 
 function! azuredevops#fugitive_handler(opts, ...) abort
   let path   = substitute(get(a:opts, 'path', ''), '^/', '', '')
@@ -36,8 +37,6 @@ function! azuredevops#fugitive_handler(opts, ...) abort
 endfunction
 
 function! azuredevops#homepage_for_remote(remote) abort
-  let domain_pattern = 'dev\.azure\.com'
-
   if !exists('g:fugitive_azure_devops_ssh_user')
     let g:fugitive_azure_devops_ssh_user = 'git'
   endif
@@ -57,7 +56,7 @@ function! azuredevops#homepage_for_remote(remote) abort
     \                          g:fugitive_azure_devops_ssh_user . '@\|' .
     \                          g:fugitive_azure_devops_ssh_user . '@ssh\.\|' .
     \                          'ssh://' . g:fugitive_azure_devops_ssh_user . '@\|\)' .
-    \                          '\%(.\{-\}@\)\=\zs\(' . domain_pattern . '\)[/:].\{-\}\ze\%(\.git\)\=$')
+    \                          '\%(.\{-\}@\)\=\zs\(' . s:fugitive_azure_devops_baseurl . '\)[/:].\{-\}\ze\%(\.git\)\=$')
 
   if url == ''
     return ''
