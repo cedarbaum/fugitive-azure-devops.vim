@@ -1,6 +1,6 @@
 # fugitive-azure-devops.vim
 
-[![Build Status](https://travis-ci.com/cedarbaum/fugitive-azure-devops.vim.svg?branch=master)](https://travis-ci.com/cedarbaum/fugitive-azure-devops.vim)
+[![Build Status](https://app.travis-ci.com/cedarbaum/fugitive-azure-devops.vim.svg?branch=master)
 
 This extension enables the `Gbrowse` functionality of the [fugitive.vim](https://github.com/tpope/vim-fugitive) plugin to work with [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) Git repositories.
 
