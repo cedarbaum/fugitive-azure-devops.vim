@@ -11,7 +11,7 @@ Make sure that you've installed the [fugitive.vim](https://github.com/tpope/vim-
 ## FAQ
 
 1. Which domains are supported?
-> For now, only repositories under `dev.azure.com` will work.
+> You can change the domain by setting `g:fugitive_azure_devops_baseurl`. Defaults is `dev.azure.com`
 2. Is Omni completion supported?
 > Not currently. This could be done via the [Azure DevOps REST API](https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.0).
 
