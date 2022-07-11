@@ -1,9 +1,10 @@
 filetype off
-set rtp+=../../vader.vim/
-set rtp+=../../vim-fugitive/
-set rtp+=../vader.vim/
-set rtp+=../vim-fugitive/
-set rtp+=../
+set runtimepath+=./vader.vim/
+set runtimepath+=./vim-fugitive/
+set runtimepath+=./fugitive-azure-devops.vim
+set runtimepath+=../vader.vim/
+set runtimepath+=../vim-fugitive/
+set runtimepath+=../fugitive-azure-devops.vim
 filetype plugin indent on
 syntax enable
 set nomore
