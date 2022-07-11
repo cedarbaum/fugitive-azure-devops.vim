@@ -28,4 +28,4 @@ jobs:
       - name: Install packages
         run: sudo apt-get install -y ${{ matrix.vim.package }} curl
       - name: Run vader against ${{ matrix.vim.package }}
-        run: ${{ matrix.vim.bin }} -Es -Nu fugitive-azure-devops.vim/test/vimrc -c "Vader! fugitive-azure-devops.vim/test/*" 2>&1
+        run: ${{ matrix.vim.bin }} -Es -Nu fugitive-azure-devops.vim/tests/vimrc -c "Vader! fugitive-azure-devops.vim/tests/*" 2>&1
