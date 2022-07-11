@@ -112,7 +112,8 @@ function! s:add_query_param(url, param_name, param_value) abort
   return url_base . query_param
 endfunction
 
-" Snippet from vim-rhubarb (https://github.com/tpope/vim-rhubarb/blob/master/autoload/rhubarb.vim, commit 70713ca)
+" Modified snippet from vim-rhubarb (https://github.com/tpope/vim-rhubarb/blob/master/autoload/rhubarb.vim, commit 70713ca)
+" See also: https://github.com/cedarbaum/fugitive-azure-devops.vim/issues/3
 function! s:url_encode(str) abort
-  return substitute(a:str, '[?@=&<>%#/:+[:space:]]', '\=submatch(0)==" "?"+":printf("%%%02X", char2nr(submatch(0)))', 'g')
+  return substitute(substitute(a:str, '[?@=&<>#/:+[:space:]]\|%\%(\x\x\)\@!', '\=printf("%%%02X", char2nr(submatch(0)))', 'g'), '%20', '+', 'g')
 endfunction
