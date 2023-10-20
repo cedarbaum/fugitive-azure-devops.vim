@@ -71,7 +71,7 @@ function! azuredevops#homepage_for_remote(remote) abort
   endif
 
   " Remove double encoded spaces (%2520) from path (see: https://github.com/tpope/vim-fugitive/issues/2230)
-  let url = substitute(url, '%2520', ' ', 'g')
+  let url = substitute(url, '%2520', '%20', 'g')
 
   " Remove port or version specifier (e.g., v3), always use HTTPS.
   return 'https://' . substitute(url, ':v\=\d\{1,5}\/', '/', '')
