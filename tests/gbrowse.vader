@@ -151,7 +151,7 @@ Execute (Gbrowse - Does not match remotes from other Git portals):
 Execute (Gbrowse - handle URLs with double encoded spaces):
     " See https://github.com/tpope/vim-fugitive/issues/2230 for context
     let opts = {
-      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%2F20project/Test%2F20project',
+      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%2520project/Test%2520project',
       \'commit': 'master',
       \'type': 'blob',
       \'path': 'hello_world.txt'
