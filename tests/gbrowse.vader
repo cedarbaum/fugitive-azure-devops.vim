@@ -147,3 +147,15 @@ Execute (Gbrowse - Does not match remotes from other Git portals):
         let url = g:fugitive_browse_handlers[0](opts)
         AssertEqual '', url
     endfor
+
+Execute (Gbrowse - handle URLs with double encoded spaces):
+    " See https://github.com/tpope/vim-fugitive/issues/2230 for context
+    let opts = {
+      \'remote': 'git@ssh.dev.azure.com:v3/scedarbaum/Test%2F20project/Test%2F20project',
+      \'commit': 'master',
+      \'type': 'blob',
+      \'path': 'hello_world.txt'
+    \}
+    let url = g:fugitive_browse_handlers[0](opts)
+
+    AssertEqual 'https://dev.azure.com/scedarbaum/Test%20project/_git/Test%20project?path=hello_world.txt&version=GBmaster', url
